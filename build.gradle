@@ -1,7 +1,4 @@
-buildscript {
-    repositories { google(); mavenCentral() }
-    dependencies { classpath 'com.android.application:8.1.4' }
-}
-allprojects {
-    repositories { google(); mavenCentral() }
+// Top-level build file
+plugins {
+    id 'com.android.application' version '8.1.4' apply false
 }
