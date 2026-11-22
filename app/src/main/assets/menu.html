@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* { box-sizing: border-box; font-family: sans-serif; }
+body { margin: 0; background: transparent; }
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  width: 300px;
+}
+h2 { margin: 0 0 12px 0; font-size: 18px; text-align: center; }
+.box { background: #f2f2f2; border-radius: 12px; padding: 12px; margin-bottom: 12px; }
+.box p { margin: 0 0 8px 0; font-weight: bold; font-size: 14px; }
+input {
+  width: 100%; padding: 10px; border: none;
+  border-radius: 10px; outline: none; margin-bottom: 8px;
+}
+button {
+  width: 100%; padding: 10px; border: none;
+  border-radius: 10px; color: white; font-weight: bold;
+}
+.btn-google { background: #4285F4; }
+.btn-ai { background: #7C3AED; }
+#jawaban {
+  margin-top: 10px; font-size: 13px;
+  background: #f9f9f9; padding: 10px; border-radius: 10px; display: none;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <h2>🔮 Moyu Floating Touch</h2>
+
+  <!-- GOOGLE -->
+  <div class="box">
+    <p>🔍 Searching Google</p>
+    <input id="googleInput" placeholder="Cari di Google...">
+    <button class="btn-google" onclick="cariGoogle()">Cari di Google</button>
+  </div>
+
+  <!-- AI -->
+  <div class="box">
+    <p>✨ Tanya AI</p>
+    <input id="aiInput" placeholder="Tanya apa aja...">
+    <button class="btn-ai" onclick="tanyaAI()">Tanya AI</button>
+    <div id="jawaban"></div>
+  </div>
+</div>
+
+<script>
+function cariGoogle() {
+  let q = document.getElementById('googleInput').value;
+  if(!q) return alert('Isi dulu mau cari apa');
+  // Buka Google
+  window.open('https://www.google.com/search?q=' + encodeURIComponent(q), '_blank');
+}
+
+function tanyaAI() {
+  let q = document.getElementById('aiInput').value;
+  if(!q) return alert('Isi dulu pertanyaannya');
+  let box = document.getElementById('jawaban');
+  box.style.display = 'block';
+  box.innerHTML = 'AI lagi mikir...';
+  
+  // Untuk sekarang, buka ChatGPT dengan pertanyaan lu
+  // Nanti kalo udah punya API Key, bisa langsung jawab di sini
+  setTimeout(() => {
+    box.innerHTML = 'Dibukain ChatGPT ya...';
+    window.open('https://chatgpt.com/?q=' + encodeURIComponent(q), '_blank');
+  }, 800);
+}
+</script>
+</body>
+  </html>
